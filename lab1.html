@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Testing the HTML Canvas</title>
+<script>
+    var canvas;    // DOM object corresponding to the canvas
+    var graphics;  // 2D graphics context for drawing on the canvas
+    
+    function draw() {
+        // draw on the canvas, using the graphics context
+        graphics.fillText("Hello World", 10, 20);
+    }
+
+    function main() {
+        canvas = document.getElementById("myCanvas");
+        if(!canvas) {    
+            console.log("Failed to retrieve the canvas");
+            return false;
+        }
+        graphics = canvas.getContext("2d");
+        if(!graphics) {    
+            console.log("Failed to retrieve the 2D context");
+            return false;
+        }
+        draw();  // draw something on the canvas 
+    }
+</script>
+</head>
+<body onload="main()">
+    <canvas id="myCanvas" width="640" height="480">
+        Canvas not supported
+    </canvas>
+</body>
+</html>
